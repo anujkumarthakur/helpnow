@@ -9,5 +9,6 @@ import (
 func InitializeRoutes() *gin.Engine {
 	router := gin.Default()
 	router.POST("/schedule", control.Sehedule)
+	router.GET("/list", control.DoctorsList)
 	return router
 }

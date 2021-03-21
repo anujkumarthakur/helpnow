@@ -2,6 +2,7 @@ package models
 
 import (
 	"helpnow/config"
+	"log"
 )
 
 type DoctorSeheduleTime struct {
@@ -20,7 +21,8 @@ func SeheduleDoctorTime(DST DoctorSeheduleTime) (*DoctorSeheduleTime, error) {
 						VALUES ($1, $2, $3, $4, $5, $6)`
 		_, err := db.Exec(doctorQuery, DST.DoctorName, DST.Specialization, DST.Day, DST.AvaliableFromTime, DST.AvaliableToTime, DST.Address)
 		if err != nil {
-			panic(err)
+			log.Println(err)
+			// panic(err)
 		}
 	}
 	return &DST, nil

@@ -13,3 +13,8 @@ func Sehedule(c *gin.Context) {
 	data, err := models.SeheduleDoctorTime(sehedule)
 	c.JSON(http.StatusOK, gin.H{"Error": err, "Data": data})
 }
+
+func DoctorsList(c *gin.Context) {
+	getDoctorsList, _ := models.GetDoctorsList()
+	c.JSON(http.StatusOK, getDoctorsList)
+}
