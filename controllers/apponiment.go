@@ -8,7 +8,7 @@ import (
 )
 
 func Sehedule(c *gin.Context) {
-	var sehedule models.DoctorSeheduleTime
+	var sehedule models.DoctorSehedule
 	c.BindJSON(&sehedule)
 	data, err := models.SeheduleDoctorTime(sehedule)
 	c.JSON(http.StatusOK, gin.H{"Error": err, "Data": data})

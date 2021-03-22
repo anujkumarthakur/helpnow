@@ -5,10 +5,10 @@ import (
 	"log"
 )
 
-func GetDoctorsList() ([]DoctorSeheduleTime, error) {
+func GetDoctorsList() ([]DoctorSehedule, error) {
 	var err error
-	var doctor DoctorSeheduleTime
-	var data []DoctorSeheduleTime
+	var doctor DoctorSehedule
+	var data []DoctorSehedule
 	db := config.GetDB()
 	doctorlistQuery := `SELECT doctor_name, spec_name, day, from_time, to_time, address FROM doctor_ast`
 
@@ -22,7 +22,7 @@ func GetDoctorsList() ([]DoctorSeheduleTime, error) {
 		if err != nil {
 			log.Println(err)
 		}
-		res := DoctorSeheduleTime{
+		res := DoctorSehedule{
 			DoctorName:        doctor.DoctorName,
 			Specialization:    doctor.Specialization,
 			Day:               doctor.Day,

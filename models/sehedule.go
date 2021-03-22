@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-type DoctorSeheduleTime struct {
+type DoctorSehedule struct {
 	DoctorName        string `json:"doctor_name"`
 	Specialization    string `json:"spec_name"`
 	Day               string `json:"day"`
@@ -14,7 +14,7 @@ type DoctorSeheduleTime struct {
 	Address           string `json:"address"`
 }
 
-func SeheduleDoctorTime(DST DoctorSeheduleTime) (*DoctorSeheduleTime, error) {
+func SeheduleDoctorTime(DST DoctorSehedule) (*DoctorSehedule, error) {
 	if DST.DoctorName != "" && DST.Specialization != "" && DST.Day != "" && DST.AvaliableFromTime != "" && DST.AvaliableToTime != "" && DST.Address != "" {
 		db := config.GetDB()
 		doctorQuery := `INSERT INTO doctor_ast (doctor_name, spec_name, day, from_time, to_time, address)
@@ -35,3 +35,7 @@ func SeheduleDoctorTime(DST DoctorSeheduleTime) (*DoctorSeheduleTime, error) {
 // 	from_time VARCHAR(20),
 // 	to_time VARCHAR(20),
 // 	address VARCHAR(200));
+
+// 	create table book_ast(appoiment_id SERIAL PRIMARY KEY,
+// 		doctor_id VARCHAR(200),
+// 		book_slot VARCHAR(200));
