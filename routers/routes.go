@@ -11,5 +11,6 @@ func InitializeRoutes() *gin.Engine {
 	router.POST("/schedule", control.Sehedule)
 	router.GET("/list", control.DoctorsList)
 	router.POST("/book", control.AppointmentBook)
+	router.POST("/cancel", control.CancelApponiment)
 	return router
 }

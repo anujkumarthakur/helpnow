@@ -25,3 +25,10 @@ func AppointmentBook(c *gin.Context) {
 	data, err := models.PatientAppointment(appoint)
 	c.JSON(http.StatusOK, gin.H{"Error": err, "Data": data})
 }
+
+func CancelApponiment(c *gin.Context) {
+	var cancel models.AppointmentCancel
+	c.BindJSON(&cancel)
+	data, err := models.BookingCancel(cancel)
+	c.JSON(http.StatusOK, gin.H{"Error": err, "Data": data})
+}
